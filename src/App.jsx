@@ -14,30 +14,36 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    setIsLoaded(true)
+  setIsLoaded(true)
 
-    if (typeof window !== 'undefined') {
-      import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js").then((module) => {
-        module.default.init({
-          chatflowid: "8d72884e-e9d1-4023-a684-63cf70054e74",
-          apiHost: "https://unbefitting-fae-improvidently.ngrok-free.dev",   // ← THIS IS THE ONLY CHANGE
-          theme: {
-            button: {
-              backgroundColor: "#ffd700",
-              right: 30,
-              bottom: 30,
-              size: 68,
-              iconColor: "#000",
+  if (typeof window !== 'undefined') {
+    import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js").then((module) => {
+      module.default.init({
+        chatflowid: "8d72884e-e9d1-4023-a684-63cf70054e74",   // ← paste the new one here
+        apiHost: "https://unbefitting-fae-improvidently.ngrok-free.dev",
+        theme: {
+          button: {
+            backgroundColor: "#ffd700",
+            right: 30,
+            bottom: 30,
+            size: 68,
+            iconColor: "#000",
+          },
+          chatWindow: {
+            welcomeMessage: "Dia dhuit! Welcome to the Brass Door. What can I get ye tonight?",
+            backgroundColor: "#1a1a1a",
+            textColor: "#ffffff",
+            botMessage: {
+              backgroundColor: "#2d2d2d",   // dark grey
+              textColor: "#ffffff"         // white text – now perfectly readable
             },
-            chatWindow: {
-              welcomeMessage: "Dia dhuit! Welcome to the Brass Door. Fancy a pint or need a table tonight?",
-              backgroundColor: "#1a1a1a",
-              textColor: "#fff",
-              poweredByTextColor: "#666",
-              botMessage: { backgroundColor: "#2d2d2d" },
-              userMessage: { backgroundColor: "#ffd700", textColor: "#000" }
-            }
+            userMessage: {
+              backgroundColor: "#ffd700",
+              textColor: "#000000"
+            },
+            poweredByTextColor: "#666"
           }
+        }
         })
       })
     }
