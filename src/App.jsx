@@ -16,12 +16,11 @@ function App() {
   useEffect(() => {
     setIsLoaded(true)
 
-    // Load Flowise chatbot only in browser (not during SSR)
     if (typeof window !== 'undefined') {
       import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js").then((module) => {
         module.default.init({
           chatflowid: "83fa03d9-b398-4a0c-9fbe-d708496621d3",
-          apiHost: "http://localhost:3000",
+          apiHost: "http://192.168.1.108:3000",   // ← THIS IS THE ONLY CHANGE
           theme: {
             button: {
               backgroundColor: "#ffd700",
