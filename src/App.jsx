@@ -19,7 +19,7 @@ function App() {
     if (typeof window !== 'undefined') {
       import("https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js").then((module) => {
         module.default.init({
-          chatflowid: "83fa03d9-b398-4a0c-9fbe-d708496621d3",
+          chatflowid: "8d72884e-e9d1-4023-a684-63cf70054e74",
           apiHost: "https://unbefitting-fae-improvidently.ngrok-free.dev",   // ← THIS IS THE ONLY CHANGE
           theme: {
             button: {
